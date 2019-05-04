@@ -35,6 +35,13 @@ class ViewController: UIViewController{
         setupLocationManager()
         locationManager.requestWhenInUseAuthorization()
         locations = Locations()
+        getAnnotations()
+    }
+    //print("\(locationManager)")
+    
+    func getAnnotations() {
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
         locations.loadData { ()
             for location in self.locations.locationsArray {
                 let annotation = MKPointAnnotation()
@@ -42,28 +49,14 @@ class ViewController: UIViewController{
                 annotation.title = location.name
                 annotation.subtitle = "Floor: \(location.floor), Room: \(location.room)"
                 self.mapView.addAnnotation(annotation)
-                //print("Hello World!")
-                //print("\(annotation.coordinate)")
             }
         }
-        //print("\(locationManager)")
     }
-    /*
-    override func viewWillAppear(_ animated: Bool) {
-        locations = Locations()
-        locations.loadData {}
-        for location in locations.locationsArray {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location.coordinate
-            mapView.addAnnotation(annotation)
-            print("Hello World!")
-            print("\(annotation.coordinate)")
-        }
-    }
- */
     
     override func viewDidAppear(_ animated: Bool) {
         signIn()
+        getRegion()
+        getAnnotations()
     }
     
     func signIn() {
