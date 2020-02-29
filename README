@@ -1,4 +1,4 @@
-The file is working fine on my own machine so hopefully nothing got messed up during submission onto github. Testing this on
-my own machine it appears that everything is fine after downloading from github, apart from having to install all of the pods
-from cmd following download (which I think is hopefully normal). However if any issues arise running this, please let me know
-and I will share a full zipped file from my local machine if need be.
+Finished in May 2019
+Simple IOS social app where users (commonly students) share about realtime information of study spaces open around campus. 
+APIs: Alamofire, Google Places API, GoogleMaps, GoogleFirestore
+Language: Swift
